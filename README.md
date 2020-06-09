@@ -1,4 +1,4 @@
-# fuzz-rs
+# vortex-rx
 
 [![](https://img.shields.io/crates/v/vortex?style=for-the-badge)](https://crates.io/crates/vortex)
 
