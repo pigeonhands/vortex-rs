@@ -1,0 +1,23 @@
+addr: 0.0.0.0
+port: 8080
+
+routes:
+  - proxy:
+      path: .*
+      target: http://example.com
+
+  - respond:
+      path: ^/no.*
+      status-code: 400
+      content-type: application/json
+      body-string: "No"
+
+  - respond:
+      path: .*
+      status-code: 200
+      content-type: application/json
+      body-string: >-
+        {
+          "Goodnight": "world!"
+        }
+
