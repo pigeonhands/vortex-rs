@@ -1,19 +1,27 @@
 addr: 0.0.0.0
 port: 8080
 
+static:
+  - dir:
+      route: /static
+      path: .
+
 routes:
   - respond:
-      path: ^/no.*
+      path: ^/no
       status-code: 400
       content-type: plain/text
       body-string: "No"
 
   - respond:
-      path: .*
+      path: ^/goodnight
       status-code: 200
       content-type: application/json
       body-string: >-
         {
           "Goodnight": "world!"
         }
+  - proxy:
+      path: /
+      target: http://google.com
 
